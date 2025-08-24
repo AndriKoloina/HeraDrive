@@ -10,4 +10,9 @@ const createLieu = async (req, res) => {
     res.status(201).json({ message: 'Lieu créé avec succès', lieu })
 }
 
-module.exports = {createLieu}
+const findAll = async(req, res) => {
+    const result = await lieuService.findAll()
+    res.status(200).json(result)                                                                                                  
+}
+
+module.exports = { createLieu, findAll}

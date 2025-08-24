@@ -20,4 +20,8 @@ const createDriver = async(req, res) => {
     })
 }
 
-module.exports= { createDriver}
+const findAll = async (req, res) => {
+    const result = await chauffeurService.findAll()
+    res.status(200).json(result)
+}
+module.exports= { createDriver, findAll}
