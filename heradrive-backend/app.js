@@ -4,6 +4,7 @@ const userRoute = require('./routes/user.route')
 const voitureRoute = require('./routes/voiture.route')
 const chauffeurRoute = require('./routes/chauffeur.route')
 const permisRoute = require('./routes/permis.route')
+const lieuRoute = require('./routes/lieu.route')
 
 const authMiddleware = require('./middleware/authMiddleware')
 
@@ -16,6 +17,7 @@ app.use('/api/auth', userRoute)
 app.use('/car', voitureRoute)
 app.use('/driver', chauffeurRoute)
 app.use('/permis', permisRoute)
+app.use('/lieu', lieuRoute)
 
 app.get('/api/protected', authMiddleware(['administrateur', 'gestionnaire']), (req, res) => {
     res.json({message: 'Bienvenue, accès autorisé ', user: req.user})
