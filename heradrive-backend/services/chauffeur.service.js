@@ -13,4 +13,10 @@ const findByCin = async (cin) => {
     return result.rows[0]
 }
 
-module.exports = {createDriver, findByCin}
+const findAll = async() => {
+    const query = 'SELECT * FROM public."chauffeurs"'
+    const result = await db.query(query)
+    return result.rows
+}
+
+module.exports = {createDriver, findByCin, findAll}

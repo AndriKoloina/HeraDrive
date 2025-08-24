@@ -13,4 +13,10 @@ const findLieuByNomAndRegion = async (nom, region) => {
     return result.rows[0]
 }
 
-module.exports = { createLieu, findLieuByNomAndRegion }
+const findAll = async() => {
+    const query = 'SELECT * FROM public."lieux"'
+    const result = await db.query(query)
+    return result.rows
+}
+
+module.exports = { createLieu, findLieuByNomAndRegion, findAll }
